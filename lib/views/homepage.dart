@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/iconsearch.dart';
 import 'nodecard.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,13 +11,10 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         //backgroundColor: Colors.black,
-        title: Text("Nodes"),
+        title: Text("Notes"),
           actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-            },
-          ),
+            
+ CustomSearchWidget(),
         ],
         
         ),
@@ -25,8 +23,8 @@ class HomePage extends StatelessWidget {
       child: SizedBox(
         child: Column(
           children: [
-            NodesCard(bColors: Colors.yellowAccent,TextCard: "Flutter Nodes",sColors: Colors.black,),
-            NodesCard(bColors: const Color.fromARGB(255, 0, 8, 255),TextCard: "Flutter Nodes",sColors: Colors.black,),
+            NodesCard(bColors: const Color.fromARGB(255, 162, 162, 86),TextCard: "Flutter Nodes",sColors: Colors.black,),
+            NodesCard(bColors: const Color.fromARGB(255, 176, 183, 168),TextCard: "Flutter Nodes",sColors: Colors.black,),
            NodesCard(bColors: const Color.fromARGB(255, 0, 221, 255),TextCard: "Flutter Nodes",sColors: Colors.black,),
            NodesCard(bColors: const Color.fromARGB(255, 174, 98, 131),TextCard: "Flutter Nodes",sColors: Colors.black,),
             NodesCard(bColors: const Color.fromARGB(255, 0, 255, 55),TextCard: "Flutter Nodes",sColors: Colors.black,),
