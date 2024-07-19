@@ -24,6 +24,8 @@ class MyApp extends StatelessWidget {
       // ),
       theme: ThemeData(
         brightness: Brightness.dark,
+        
+        fontFamily: 'Poppins',
       ),
       home: const HomePage (),
     );
