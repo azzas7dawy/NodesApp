@@ -11,18 +11,20 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: FloatingActionButton(onPressed: () {},
+        child:const Icon(Icons.add,color: Color.fromARGB(255, 64, 172, 255),),),
         appBar: AppBar(
           //backgroundColor: Colors.black,
-          title:const Text("Notes"),
-          actions:const [
-          CustomSearchWidget(),
+          title: const Text("Notes"),
+          actions: const [
+            CustomSearchWidget(),
           ],
         ),
-        body:const Padding(
+        body: const Padding(
           padding: EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             children: [
-             // SizedBox(height: 20,),
+              // SizedBox(height: 20,),
               Expanded(child: NotesListView()),
               // NotesCard(
               //   bColor: const Color(0xffFFCC80),
@@ -34,8 +36,7 @@ class HomePage extends StatelessWidget {
               // ),
               // //  NodesCard(bColors: const Color.fromARGB(255, 176, 183, 168),TextCard: "Flutter Nodes",sColors: Colors.black,),
               // //  NodesCard(bColors: const Color.fromARGB(255, 0, 221, 255),TextCard: "Flutter Nodes",sColors: Colors.black,),
-          
-              
+
               // SizedBox(height:10 ,),
               // NotesCard(
               //   bColor: const Color.fromARGB(255, 17, 17, 15),
