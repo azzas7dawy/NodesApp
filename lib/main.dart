@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 
 import 'views/homepage.dart';
+import 'widgets/constants/colors.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox(kNotesBox);
   runApp(const MyApp());
 }
 
 final darkTheme = ThemeData(
- // primarySwatch: Colors.deepPurple,
+  // primarySwatch: Colors.deepPurple,
   brightness: Brightness.dark,
   // Add more theme properties as needed
 );
@@ -19,16 +23,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-  debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       // theme: ThemeData(
       // ),
       theme: ThemeData(
         brightness: Brightness.dark,
-        
         fontFamily: 'Poppins',
       ),
-      home: const HomePage (),
+      home: const HomePage(),
     );
   }
 }
-

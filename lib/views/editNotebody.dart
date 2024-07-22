@@ -12,10 +12,10 @@ class EditNoteBodyView extends StatelessWidget {
       padding:  EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         children: [
-             SizedBox(height: 50,),
+             SizedBox(height: 40,),
           CustomtextFiled(hint: 'Title',),
-          SizedBox(height: 20,),
-          CustomtextFiled( hint: ' Content',maxLines: 10,),
+          SizedBox(height: 16),
+          CustomtextFiled( hint: ' Content',maxLines: 8,),
         //  NotesModelSheet(),
         ],
       ),
