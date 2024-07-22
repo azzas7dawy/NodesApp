@@ -35,30 +35,16 @@ class HomePage extends StatelessWidget {
           //backgroundColor: Colors.black,
           title: const Text("Notes"),
           actions: const [
-            CustomSearchWidget(),
+            CustomSearchWidget(icon: Icons.search,),
           ],
         ),
         body: const Padding(
           padding: EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             children: [
-              // SizedBox(height: 20,),
+            
               Expanded(child: NotesListView()),
-              // NotesCard(
-              //   bColor: const Color(0xffFFCC80),
-              // )
-              // NodesCard(
-              //   bColors: const Color.fromARGB(255, 162, 162, 86),
-              //   TextCard: "Flutter Nodes",
-              //   sColors: Colors.black,
-              // ),
-              // //  NodesCard(bColors: const Color.fromARGB(255, 176, 183, 168),TextCard: "Flutter Nodes",sColors: Colors.black,),
-              // //  NodesCard(bColors: const Color.fromARGB(255, 0, 221, 255),TextCard: "Flutter Nodes",sColors: Colors.black,),
-
-              // SizedBox(height:10 ,),
-              // NotesCard(
-              //   bColor: const Color.fromARGB(255, 17, 17, 15),
-              // ),
+            
             ],
           ),
         ));
