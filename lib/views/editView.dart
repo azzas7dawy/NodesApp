@@ -16,7 +16,7 @@ class EditCardView extends StatelessWidget {
           ],
         ),
      // backgroundColor: Colors.white30,
-      body: EditNoteBodyView(),
+      body:const EditNoteBodyView(),
     );
   }
 }
