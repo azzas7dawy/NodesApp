@@ -1,37 +1,42 @@
+//
+
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/adapters.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:notessapp/Models/cardmodel.dart';
 
+import 'Cubits/cubit/add_note_edit_cubit.dart';
 import 'views/homepage.dart';
 import 'widgets/constants/colors.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
-  await Hive.openBox(kNotesBox);
+  await Hive.openBox<CardModel>(kNotesBox);
   Hive.registerAdapter(NoteModelAdapter());
 
-  runApp(const MyApp());
+  runApp(const NotesApp());
 }
 
-final darkTheme = ThemeData(
-  // primarySwatch: Colors.deepPurple,
-  brightness: Brightness.dark,
-  // Add more theme properties as needed
-);
+class NotesApp extends StatelessWidget {
+  const NotesApp({super.key});
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        fontFamily: 'Poppins',
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AddNoteEditCubit(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          fontFamily: 'Poppins',
+        ),
+        home: const HomePage(),
       ),
-      home: const HomePage(),
     );
   }
 }
