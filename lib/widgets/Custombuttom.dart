@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:notessapp/widgets/constants/colors.dart';
 
+// ignore: must_be_immutable
 class CustomTextButton extends StatelessWidget {
-  const CustomTextButton({
-    super.key, this.onTap,
+   CustomTextButton({
+    super.key,
+    this.onTap,
+    required this.isLoading
   });
   final void Function()? onTap;
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return TextButton(
@@ -19,17 +23,27 @@ class CustomTextButton extends StatelessWidget {
             height: 40,
             width: double.infinity,
             color: kprimaryColor,
-            child: const Center(
-              child: Text(
-                "Add",
-                style: TextStyle(
+            child:  Center(
+              child:isLoading ?
+            const  SizedBox(
+                height: 25,
+                width: 25,
+                child: CircularProgressIndicator(
                   color: Colors.black,
-                  fontSize: 20,
+                  
+                ),
+              )
+              : const Text(
+                  "Add",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                  ),
                 ),
               ),
             ),
           ),
-        ),
+        
       ),
     );
   }

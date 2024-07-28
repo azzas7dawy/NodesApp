@@ -1,5 +1,7 @@
 {
     "recommendations": [
-        "felixangelov.bloc"
+        "felixangelov.bloc",
+        "dart-code.dart-code",
+        "ms-vscode.cmake-tools"
     ]
 }

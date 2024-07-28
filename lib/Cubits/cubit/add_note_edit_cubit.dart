@@ -16,6 +16,7 @@ class AddNoteEditCubit extends Cubit<AddNoteEditState> {
       var notesBox =await Hive.box<CardModel>(kNotesBox);
       notesBox.add(note);
       emit(AddNoteEditSuccess());
+      
     } catch (e) {
       emit(AddNoteEditFlauiler(e.toString()));
     }

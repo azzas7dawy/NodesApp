@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:notessapp/Cubits/cubit/add_note_edit_cubit.dart';
+import 'package:notessapp/Models/cardmodel.dart';
 import 'package:notessapp/widgets/Custombuttom.dart';
 import 'package:notessapp/widgets/cutomTextfield.dart';
 
@@ -16,7 +17,8 @@ class NotesModelSheet extends StatefulWidget {
 class _NotesModelSheetState extends State<NotesModelSheet> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return BlocProvider(
+      create: (context) => AddNoteEditCubit(),
       child: BlocConsumer<AddNoteEditCubit, AddNoteEditState>(
         listener: (context, state) {
           if (state is AddNoteEditFlauiler) {
@@ -29,9 +31,17 @@ class _NotesModelSheetState extends State<NotesModelSheet> {
         },
         // ignore: unused_label
         builder: (context, state) {
-          return ModalProgressHUD(
-              inAsyncCall: state is AddNoteEditLodeding ? true : false,
-              child: const AddNoteForm());
+          return AbsorbPointer(
+            absorbing: state is AddNoteEditLodeding? true:false,
+            child: Padding(
+              padding:  EdgeInsets.only(left: 16,right: 16,
+              bottom: MediaQuery.of(context).viewInsets.bottom,
+              ),
+              child: const SingleChildScrollView(
+                child: AddNoteForm(),
+              ),
+            ),
+          );
         },
       ),
     );
@@ -82,14 +92,30 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(
             height: 50,
           ),
-          CustomTextButton(
-            onTap: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+          BlocBuilder<AddNoteEditCubit,AddNoteEditState>(
+            builder: (context, state) {
+              return CustomTextButton(
+                isLoading: state is AddNoteEditLodeding ?true:false,
+                onTap: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    // ignore: prefer_typing_uninitialized_variables
+                    // String? content;
+                    var cardModel = CardModel(
+                      title: title!,
+                      content: '',
+                      date: DateTime.now().toString(),
+                      color: const Color.fromARGB(255, 7, 80, 154).value,
+                    );
+
+                    BlocProvider.of<AddNoteEditCubit>(context)
+                        .addNote(cardModel);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
             },
           )
         ],
