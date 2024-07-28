@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:hive_flutter/adapters.dart';
-// ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 import 'package:notessapp/Models/cardmodel.dart';
 import 'package:notessapp/widgets/constants/colors.dart';
@@ -14,7 +13,7 @@ class AddNoteEditCubit extends Cubit<AddNoteEditState> {
     emit(AddNoteEditLodeding());
     try {
       var notesBox =await Hive.box<CardModel>(kNotesBox);
-      notesBox.add(note);
+     await notesBox.add(note);
       emit(AddNoteEditSuccess());
       
     } catch (e) {

@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../views/editView.dart';
 
 class NotesCard extends StatelessWidget {
-  NotesCard({
+  const NotesCard({
     super.key,
     required this.bColor,
   });
@@ -53,7 +53,7 @@ class NotesCard extends StatelessWidget {
                     size: 26,
                   )),
             ),
-            Text(
+           const  Text(
               'May22 ,2022',
               style: TextStyle(
                 //fontSize: 15,
