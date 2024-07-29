@@ -13,6 +13,8 @@ import 'nodecard.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+  @override
+  // ignore: override_on_non_overriding_member
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,7 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
           resizeToAvoidBottomInset: false,
           floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.blueGrey,
             onPressed: () {
               showModalBottomSheet(
                   shape: RoundedRectangleBorder(
@@ -28,7 +31,7 @@ class HomePage extends StatelessWidget {
                   ),
                   context: context,
                   builder: (context) {
-                    return NotesModelSheet();
+                    return const NotesModelSheet();
                   });
             },
             child: const Icon(

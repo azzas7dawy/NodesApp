@@ -9,14 +9,20 @@ part 'notes_cubit_state.dart';
 
 class NotesCubitCubit extends Cubit<NotesCubitState> {
   NotesCubitCubit() : super(NotesCubitInitial());
+  List<CardModel>? notes;
+  
   fetchNotes() async {
-   
-    try {
-      var notesBox = Hive.box<CardModel>(kNotesBox);
-     
-      emit(NotesCubitSuccess(notesBox.values.toList(),));
-    } catch (e) {
-      emit((NotesCubitFaluire(e.toString())));
-    }
+    var notesBox = Hive.box<CardModel>(kNotesBox);
+
+      emit(NotesCubitSuccess(
+     notes= notesBox.values.toList(),));
+    // try {
+    //   var notesBox = Hive.box<CardModel>(kNotesBox);
+
+    //   emit(NotesCubitSuccess(
+    //     notesBox.values.toList(),));
+    // } catch (e) {
+    //   emit((NotesCubitFaluire(e.toString())));
+    // }
   }
 }

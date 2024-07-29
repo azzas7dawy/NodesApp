@@ -35,7 +35,7 @@ class NodesCard extends StatelessWidget {
               ),
             ),
             Text(
-              'data',
+              '$context',
               style: TextStyle(
                 color: sColors,
                 fontSize: 17,
