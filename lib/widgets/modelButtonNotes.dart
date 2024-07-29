@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:notessapp/Cubits/cubit/add_note_edit_cubit.dart';
+import 'package:notessapp/Cubits/cubit/notes_cubit_cubit.dart';
 import 'package:notessapp/Models/cardmodel.dart';
 import 'package:notessapp/widgets/Custombuttom.dart';
 import 'package:notessapp/widgets/cutomTextfield.dart';
@@ -20,11 +21,11 @@ class _NotesModelSheetState extends State<NotesModelSheet> {
       create: (context) => AddNoteEditCubit(),
       child: BlocConsumer<AddNoteEditCubit, AddNoteEditState>(
         listener: (context, state) {
-          if (state is AddNoteEditFlauiler) {
-            print('Falied ${state.errorMessage}');
-          }
+          if (state is AddNoteEditFlauiler) {}
+          
           // ignore: unnecessary_type_check
           if (state is AddNoteEditState) {
+            BlocProvider.of<NotesCubitCubit>(context).fetchNotes();
             Navigator.pop(context);
           }
         },
@@ -104,12 +105,12 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     // String? content;
                     var currentDate = DateTime.now();
                     var formattedCurrentDate =
-                     DateFormat.yMd().format(currentDate);
+                        DateFormat.yMd().format(currentDate);
                     var cardModel = CardModel(
                       title: title!,
                       content: '',
                       date: formattedCurrentDate,
-                      color:  Colors.blue.value,
+                      color: Colors.blue.value,
                     );
 
                     BlocProvider.of<AddNoteEditCubit>(context)
@@ -128,4 +129,3 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
   }
 }
- 

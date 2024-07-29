@@ -18,44 +18,41 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubitCubit(),
-      child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          floatingActionButton: FloatingActionButton(
-            backgroundColor: Colors.blueGrey,
-            onPressed: () {
-              showModalBottomSheet(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  context: context,
-                  builder: (context) {
-                    return const NotesModelSheet();
-                  });
-            },
-            child: const Icon(
-              Icons.add,
-              color: Color.fromARGB(255, 64, 172, 255),
-            ),
+    return Scaffold(
+        resizeToAvoidBottomInset: false,
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.blueGrey,
+          onPressed: () {
+            showModalBottomSheet(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                context: context,
+                builder: (context) {
+                  return const NotesModelSheet();
+                });
+          },
+          child: const Icon(
+            Icons.add,
+            color: Color.fromARGB(255, 64, 172, 255),
           ),
-          appBar: AppBar(
-            //backgroundColor: Colors.black,
-            title: const Text("Notes"),
-            actions: const [
-              CustomSearchWidget(
-                icon: Icons.search,
-              ),
+        ),
+        appBar: AppBar(
+          //backgroundColor: Colors.black,
+          title: const Text("Notes"),
+          actions: const [
+            CustomSearchWidget(
+              icon: Icons.search,
+            ),
+          ],
+        ),
+        body: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            children: [
+              Expanded(child: NotesListView()),
             ],
           ),
-          body: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
-            child: Column(
-              children: [
-                Expanded(child: NotesListView()),
-              ],
-            ),
-          )),
-    );
+        ));
   }
 }
