@@ -11,7 +11,7 @@ class NotesCard extends StatelessWidget {
     required this.note,
   });
   final CardModel note;
-  
+
   final Color bColor;
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,9 @@ class NotesCard extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    note.delete();
+                  },
                   icon: const Icon(
                     FontAwesomeIcons.trash,
                     // Icons.delete,
