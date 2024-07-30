@@ -22,7 +22,7 @@ class NotesCard extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const EditCardView(),
+              builder: (context) => EditCardView(note:note),
             ));
       },
       child: Container(

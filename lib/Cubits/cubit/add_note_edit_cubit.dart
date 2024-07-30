@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:meta/meta.dart';
+
 import 'package:notessapp/Models/cardmodel.dart';
 import 'package:notessapp/widgets/constants/colors.dart';
 

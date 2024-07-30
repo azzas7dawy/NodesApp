@@ -22,7 +22,7 @@ class _NotesModelSheetState extends State<NotesModelSheet> {
       child: BlocConsumer<AddNoteEditCubit, AddNoteEditState>(
         listener: (context, state) {
           if (state is AddNoteEditFlauiler) {}
-          
+
           // ignore: unnecessary_type_check
           if (state is AddNoteEditState) {
             BlocProvider.of<NotesCubitCubit>(context).fetchNotes();
@@ -101,6 +101,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 onTap: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
+                    
                     // ignore: prefer_typing_uninitialized_variables
                     // String? content;
                     var currentDate = DateTime.now();
@@ -115,12 +116,14 @@ class _AddNoteFormState extends State<AddNoteForm> {
 
                     BlocProvider.of<AddNoteEditCubit>(context)
                         .addNote(cardModel);
+                      
                   } else {
                     autovalidateMode = AutovalidateMode.always;
-                    setState(() {});
+                  setState(() {});
                   }
-                  // Navigator.pop(context);
+                    
                 },
+                
               );
             },
           )

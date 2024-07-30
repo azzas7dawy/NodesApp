@@ -3,12 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notessapp/Cubits/cubit/notes_cubit_cubit.dart';
-import 'package:notessapp/widgets/notesListview.dart';
+import 'package:notessapp/widgets/constants/colors.dart';
+import 'package:notessapp/views/notesListview.dart';
+import 'package:notessapp/widgets/modelButtonNotes.dart';
 
 import 'package:notessapp/widgets/notescard.dart';
 
 import '../widgets/iconsearch.dart';
-import '../widgets/modelButtonNotes.dart';
+
 import 'nodecard.dart';
 
 class HomePage extends StatelessWidget {
@@ -21,7 +23,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.blueGrey,
+          backgroundColor:kprimaryColor,
           onPressed: () {
             showModalBottomSheet(
                 shape: RoundedRectangleBorder(

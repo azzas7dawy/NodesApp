@@ -3,15 +3,17 @@ import 'package:notessapp/widgets/constants/colors.dart';
 
 class CustomtextFiled extends StatelessWidget {
   const CustomtextFiled(
-      {super.key, required this.hint, this.maxLines = 1, this.onSeved});
+      {super.key, required this.hint, this.maxLines = 1, this.onSeved, this.onChange});
   final String hint;
   final int maxLines;
   final void Function(String?)? onSeved;
+  final void Function(String)? onChange;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding:  EdgeInsets.symmetric(horizontal: 16.0),
       child: TextFormField(
+        onChanged:onChange ,
         onSaved: onSeved,
         validator: (value) {
           if (value?.isEmpty ?? true) {
@@ -26,12 +28,12 @@ class CustomtextFiled extends StatelessWidget {
 
         decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
+              borderSide:const BorderSide(
                 color: Colors.white,
               ),
               borderRadius: BorderRadius.circular(10),
             ),
-            focusedBorder: OutlineInputBorder(),
+            focusedBorder: const OutlineInputBorder(),
             hintText: hint,
             hintStyle: TextStyle(color: kprimaryColor)
             // border: BorderRadius.circular(16),

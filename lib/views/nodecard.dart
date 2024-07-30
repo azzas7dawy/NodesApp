@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
 class NodesCard extends StatelessWidget {
-  NodesCard({
+  const NodesCard({
     super.key,
     required this.bColors,
-    required this.TextCard,
+    required this.textCard,
   required this.sColors,
   });
   final Color bColors;
   final Color sColors;
-  final String TextCard;
+  final String textCard;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 6),
-      padding: EdgeInsets.all( 10),
+      margin:const EdgeInsets.only(top: 6),
+      padding:const EdgeInsets.all( 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: bColors,
@@ -28,8 +28,9 @@ class NodesCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '$TextCard',
-              style: TextStyle(
+              // ignore: unnecessary_string_interpolations
+              '$textCard',
+              style:const TextStyle(
                 color: Colors.blue,
                 fontSize: 24,
               ),
