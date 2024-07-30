@@ -4,7 +4,9 @@ import 'package:intl/intl.dart';
 import 'package:notessapp/Cubits/cubit/add_note_edit_cubit.dart';
 import 'package:notessapp/Cubits/cubit/notes_cubit_cubit.dart';
 import 'package:notessapp/Models/cardmodel.dart';
+import 'package:notessapp/views/colors_listview.dart';
 import 'package:notessapp/widgets/Custombuttom.dart';
+import 'package:notessapp/widgets/coloritem.dart';
 import 'package:notessapp/widgets/cutomTextfield.dart';
 
 class NotesModelSheet extends StatefulWidget {
@@ -91,6 +93,11 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hint: "SubTitle",
             maxLines: 5,
           ),
+const SizedBox(
+            height: 10,
+          ),
+  const ColorsListView(),
+
           const SizedBox(
             height: 50,
           ),
@@ -132,3 +139,4 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
   }
 }
+
