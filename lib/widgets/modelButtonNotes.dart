@@ -6,7 +6,7 @@ import 'package:notessapp/Cubits/cubit/notes_cubit_cubit.dart';
 import 'package:notessapp/Models/cardmodel.dart';
 import 'package:notessapp/views/colors_listview.dart';
 import 'package:notessapp/widgets/Custombuttom.dart';
-import 'package:notessapp/widgets/coloritem.dart';
+
 import 'package:notessapp/widgets/cutomTextfield.dart';
 
 class NotesModelSheet extends StatefulWidget {

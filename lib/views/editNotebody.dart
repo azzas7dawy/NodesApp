@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:notessapp/Models/cardmodel.dart';
+
+import 'package:notessapp/views/edit_note_color_list_view.dart';
+
 
 import '../widgets/cutomTextfield.dart';
 
@@ -26,11 +30,14 @@ class EditNoteBodyView extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           CustomtextFiled(
-            hint:note.content,
+            hint: note.content,
             onChange: (value) {
               content = value;
             },
             maxLines: 8,
+          ),
+          const SizedBox(height: 16),
+           EditNoteColorList(note:note,
           ),
           //  NotesModelSheet(),
         ],

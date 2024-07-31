@@ -9,14 +9,15 @@ part 'add_note_edit_state.dart';
 
 class AddNoteEditCubit extends Cubit<AddNoteEditState> {
   AddNoteEditCubit() : super(AddNoteEditInitial());
+  Color color = const Color(0xffffc2e2);
 
- Future addNote(CardModel note) async {
+  Future addNote(CardModel note) async {
+    note.color = color.value;
     emit(AddNoteEditLodeding());
     try {
-      var notesBox =await Hive.box<CardModel>(kNotesBox);
-     await notesBox.add(note);
+      var notesBox = await Hive.box<CardModel>(kNotesBox);
+      await notesBox.add(note);
       emit(AddNoteEditSuccess());
-      
     } catch (e) {
       emit(AddNoteEditFlauiler(e.toString()));
     }
