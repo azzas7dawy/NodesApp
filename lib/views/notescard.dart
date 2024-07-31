@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notessapp/Cubits/cubit/notes_cubit_cubit.dart';
 import 'package:notessapp/Models/cardmodel.dart';
 
-import '../views/editView.dart';
+import 'editView.dart';
 
 class NotesCard extends StatelessWidget {
   const NotesCard({

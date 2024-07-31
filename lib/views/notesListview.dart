@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notessapp/Cubits/cubit/notes_cubit_cubit.dart';
 import 'package:notessapp/Models/cardmodel.dart';
-import 'package:notessapp/widgets/notescard.dart';
+import 'package:notessapp/views/notescard.dart';
 
 class NotesListView extends StatefulWidget {
   const NotesListView({super.key});

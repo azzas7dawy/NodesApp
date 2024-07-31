@@ -5,9 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notessapp/Cubits/cubit/notes_cubit_cubit.dart';
 import 'package:notessapp/widgets/constants/colors.dart';
 import 'package:notessapp/views/notesListview.dart';
-import 'package:notessapp/widgets/modelButtonNotes.dart';
+import 'package:notessapp/views/modelButtonNotes.dart';
 
-import 'package:notessapp/widgets/notescard.dart';
+import 'package:notessapp/views/notescard.dart';
 
 import '../widgets/iconsearch.dart';
 
