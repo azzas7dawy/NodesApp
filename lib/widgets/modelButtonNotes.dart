@@ -93,13 +93,13 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hint: "SubTitle",
             maxLines: 5,
           ),
-const SizedBox(
-            height: 10,
+  const SizedBox(
+            height: 32,
           ),
-  const ColorsListView(),
+ ColorsListView(),
 
           const SizedBox(
-            height: 50,
+            height: 32,
           ),
           BlocBuilder<AddNoteEditCubit, AddNoteEditState>(
             builder: (context, state) {
